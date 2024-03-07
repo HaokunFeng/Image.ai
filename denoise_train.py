@@ -45,7 +45,7 @@ autoencoder.compile(optimizer='adam', loss='mse')
 # 训练模型
 autoencoder.fit(x_train_noisy, x_train, epochs=30, batch_size=128, validation_data=(x_test_noisy, x_test))
 
-autoencoder.save('denoising.h5')
+autoencoder.save('models/denoising.h5')
 
 # 使用模型进行图像降噪
 denoised_images = autoencoder.predict(x_test_noisy)
