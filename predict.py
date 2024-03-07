@@ -5,10 +5,10 @@ from keras.utils import load_img, img_to_array
 import numpy as np
 
 # 加载训练好的模型
-loaded_model = tf.keras.models.load_model('denoising_model.h5')
+loaded_model = tf.keras.models.load_model('models/denoising_model.h5')
 
 # 替换为你的图像路径
-image_path = 'dataset/0010_NOISY_SRGB_010.PNG'
+image_path = 'asset/0010_NOISY_SRGB_010.PNG'
 
 # 加载图像并进行预处理
 img = load_img(image_path)
