@@ -50,7 +50,9 @@ if uploaded_file is not None:
             # Download the denoised image
             st.download_button(
                 label="Download Denoised Image",
-                data=buffer.getvalue(),
+                on_click=lambda: st.write(buffer.getvalue()),
                 file_name="denoised_image.jpg",
+                key="download_denoised_image",
+                help="Click here to download the denoised image.",
                 mime="image/jpeg"
             )
