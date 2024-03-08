@@ -21,7 +21,7 @@ def denoise_image(model, img_array):
     denoised_img = model.predict(img_array)
     return denoised_img[0]
 
-loaded_model = tf.keras.models.load_model('models/denoising_model.h5')
+loaded_model = load_model('models/denoising_model.h5')
 
 uploaded_file = st.file_uploader("Upload a Noisy Image", type=["jpg", "jpeg", "png"])
 

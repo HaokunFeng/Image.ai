@@ -54,7 +54,7 @@ if uploaded_file is not None:
         enhanced_image = enhance_image(model, image)
         st.image(enhanced_image, caption='Enhanced Image', use_column_width=True)
         
-        # enhanced_image.save("enhanced_image.png")
+        enhanced_image.save("enhanced_image.png")
         with open("enhanced_image.png", "rb") as file:
             btn = st.download_button(
                 label="Download Enhanced Image",
