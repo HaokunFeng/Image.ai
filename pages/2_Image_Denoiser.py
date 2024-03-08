@@ -6,48 +6,47 @@ import numpy as np
 from PIL import Image
 import io
 
-# Function to denoise the image using the loaded model
+st.set_page_config(
+    page_title="Image Denoiser",
+    page_icon="🖼️",
+    layout="centered",
+    initial_sidebar_state="auto",
+    menu_items=None,
+)
+st.title("🖼️ Image Denoiser")
+st.caption("Upload a noisy image and remove noise using our pre-trained model.")
+st.markdown("---")
+
 def denoise_image(model, img_array):
     denoised_img = model.predict(img_array)
     return denoised_img[0]
 
-# Load the pre-trained denoising model
 loaded_model = tf.keras.models.load_model('models/denoising_model.h5')
 
-# Streamlit app
-st.title("Image Denoising App")
-
-# Upload image through Streamlit
 uploaded_file = st.file_uploader("Upload a Noisy Image", type=["jpg", "jpeg", "png"])
 
-# Check if an image has been uploaded
+
 if uploaded_file is not None:
-    # Load and preprocess the uploaded image
+    # load and preprocess the uploaded image
     img = Image.open(uploaded_file)
     img_array = img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0) / 255.0
 
-    # Display the original image
+    # display the original image
     st.image(img, caption="Original Image", use_column_width=True)
 
-    # Button to perform denoising
     if st.button("Denoise Image"):
-        # Perform denoising
         denoised_img = denoise_image(loaded_model, img_array)
 
-        # Display the denoised image
+        # display the denoised image
         st.image(denoised_img, caption="Denoised Image", use_column_width=True)
 
-        # Button to download the denoised image
         if st.button("Download Denoised Image"):
-            # Convert the NumPy array to a PIL Image
             denoised_pil_img = Image.fromarray((denoised_img * 255).astype(np.uint8))
-
-            # Save the PIL Image to a BytesIO buffer
             buffer = io.BytesIO()
             denoised_pil_img.save(buffer, format="JPEG")
 
-            # Download the denoised image
+            # download the denoised image
             st.download_button(
                 label="Download Denoised Image",
                 on_click=lambda: st.write(buffer.getvalue()),
