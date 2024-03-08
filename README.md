@@ -18,7 +18,7 @@ To use this program in your local environment, follow these simple steps:
 - To train your own model, use the ``.py`` or ``.ipynb`` files in ``train`` folder
 
 
-## Image Denoiser
+## Image Denoiser 🖼️
 Image Denoiser implements a convolutional autoencoder for image denoising using the CIFAR-10 dataset.
 
 ### Dataset
@@ -52,7 +52,7 @@ Due to the manual addition of image noise in the training set, the model trained
 
 
 
-## Image Super-Resolution Using Convolutional Neural Networks
+## Image Enhancer ⚡
 
 This project demonstrates the application of Convolutional Neural Networks (CNNs) for enhancing the resolution of images, a process commonly known as Image Super-Resolution (ISR). We utilize the DIV2K dataset, a popular benchmark for super-resolution, to train and evaluate our model.
 
