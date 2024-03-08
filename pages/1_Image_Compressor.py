@@ -35,7 +35,7 @@ def main():
             compressed_image.save(compressed_image_bytes, format="JPEG")
             compressed_image_bytes = compressed_image_bytes.getvalue()
 
-            download_link = f'<a href="data:application/octet-stream;base64,{base64.b64encode(compressed_image_bytes).decode()}" download="compressed_image.jpg">点击此处下载压缩后的图像</a>'
+            download_link = f'<a href="data:application/octet-stream;base64,{base64.b64encode(compressed_image_bytes).decode()}" download="compressed_image.jpg">download compressed image</a>'
             st.markdown(download_link, unsafe_allow_html=True)
 
 if __name__ == "__main__":
