@@ -17,7 +17,7 @@ st.markdown("---")
 
 # load the model architecture without compiling
 try:
-    model = tf.keras.models.load_model('models/image_enhancer.h5', compile=False)
+    model = load_model('models/image_enhancer.h5', compile=False)
 except Exception as e:
     st.error(f"Error loading the model: {str(e)}")
 
