@@ -3,6 +3,17 @@ import streamlit as st
 import io
 import base64
 
+st.set_page_config(
+    page_title="Image Compressor",
+    page_icon="🗜️",
+    layout="centered",
+    initial_sidebar_state="auto",
+    menu_items=None,
+)
+st.title("🗜️ Image Compressor")
+st.caption("Upload image and compress the size of it without losing quality.")
+st.markdown("---")
+
 def compress_image(input_image, quality=85):
     img_io = io.BytesIO()
     input_image.save(img_io, 'JPEG', quality=quality)
