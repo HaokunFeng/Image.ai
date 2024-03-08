@@ -63,30 +63,39 @@ plt.ylabel('Loss')
 plt.legend()
 plt.show()
 
-# 可视化一些样本的原始图像、带噪声的图像和模型生成的图像
-num_samples = 5
+
+# Visualize all samples on the same figure
+num_samples = 10
 selected_indices = np.random.choice(len(x_test), num_samples, replace=False)
 
-for idx in selected_indices:
+plt.figure(figsize=(15, 4))
+
+for i, idx in enumerate(selected_indices):
     original_img = x_test[idx]
     noisy_img = x_test_noisy[idx]
     denoised_img = model.predict(np.expand_dims(noisy_img, axis=0))[0]
 
-    plt.figure(figsize=(10, 4))
-
-    plt.subplot(1, 3, 1)
+    # Original Image
+    plt.subplot(3, num_samples, i + 1)
     plt.imshow(original_img)
-    plt.title('Original Image')
+    plt.title(f'Sample {i + 1}\nOriginal Image')
+    plt.axis('on')
 
-    plt.subplot(1, 3, 2)
+    # Noisy Image
+    plt.subplot(3, num_samples, num_samples + i + 1)
     plt.imshow(noisy_img)
     plt.title('Noisy Image')
+    plt.axis('on')
 
-    plt.subplot(1, 3, 3)
+    # Denoised Image
+    plt.subplot(3, num_samples, 2 * num_samples + i + 1)
     plt.imshow(denoised_img)
     plt.title('Denoised Image')
+    plt.axis('on')
 
-    plt.show()
+plt.tight_layout()
+plt.show()
+
 
 # 保存模型
 model.save('models/denoising_model.h5')
