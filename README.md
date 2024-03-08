@@ -48,7 +48,7 @@ Due to the manual addition of image noise in the training set, the model trained
 
 ### Samples
 ![Sample1](https://github.com/HaokunFeng/Image.ai/blob/main/assets/sample_1.jpg)
-1[Sample2](https://github.com/HaokunFeng/Image.ai/blob/main/assets/sample_1_dnoised.jpg)
+![Sample2](https://github.com/HaokunFeng/Image.ai/blob/main/assets/sample_1_dnoised.jpg)
 
 
 
